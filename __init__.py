@@ -10,7 +10,8 @@ class StopwatchAndTimer(MycroftSkill):
 
     @intent_file_handler('stopwatch_start.intent')
     def handle_stopwatch_start_intent(self, message):
-        self.speak_dialog("stopwatch_start", expect_response=True)
+        self.speak_dialog("stopwatch_start")
+        #, expect_response=True)
         self.starttime = time.time() 
         
     @intent_file_handler('stopwatch_stop.intent')

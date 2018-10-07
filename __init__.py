@@ -1,6 +1,7 @@
 from mycroft import MycroftSkill, intent_file_handler
 from mycroft.util.parse import extract_number
-import time, humanfriendly
+import time 
+import humanfriendly
 
 
 class StopwatchAndTimer(MycroftSkill):

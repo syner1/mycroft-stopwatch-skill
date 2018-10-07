@@ -4,14 +4,14 @@ import time
 import humanfriendly
 
 
-class StopwatchAndTimer(MycroftSkill):
+class Stopwatch(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+        self.starttime = 0
 
     @intent_file_handler('stopwatch_start.intent')
     def handle_stopwatch_start_intent(self, message):
         self.speak_dialog("stopwatch_start")
-        #, expect_response=True)
         self.starttime = time.time() 
         
     @intent_file_handler('stopwatch_stop.intent')
@@ -25,8 +25,16 @@ class StopwatchAndTimer(MycroftSkill):
             self.speak_dialog("stopwatch_stop", data=response)
             self.starttime = 0
             pass
-        
-        
+    
+    @intent_file_handler('stopwatch_lap.intent')
+    def handle_stopwatch_lap_intent(self, message):
+        if self.starttime == 0:
+            self.speak_dialog("stopwatch_nostart")
+            pass
+        else:
+            response = {'time': humanfriendly.format_timespan(int(time.time()))}
+            self.speak_dialog("stopwatch_lap", data=response)
+            pass
 
 def create_skill():
     return StopwatchAndTimer()

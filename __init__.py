@@ -32,7 +32,8 @@ class Stopwatch(MycroftSkill):
             self.speak_dialog("stopwatch_nostart")
             pass
         else:
-            response = {'time': humanfriendly.format_timespan(int(time.time()))}
+            laptime = time.time() - self.starttime
+            response = {'time': humanfriendly.format_timespan(int(laptime))}
             self.speak_dialog("stopwatch_lap", data=response)
             pass
 

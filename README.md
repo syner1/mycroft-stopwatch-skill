@@ -1,11 +1,11 @@
 ## Stopwatch
-Simpel stopwatch
+Simple stopwatch
 
 ## Description
-Simpel stopwatch
+Simple stopwatch
 
 ## Examples
- - "Start stopwatch"
+ - "Stopwatch"
  - "Time me"
 
 

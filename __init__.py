@@ -38,5 +38,5 @@ class Stopwatch(MycroftSkill):
             pass
 
 def create_skill():
-    return StopwatchAndTimer()
+    return Stopwatch()
 
